@@ -44,6 +44,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         s.inline = "sh /vagrant/install.sh $1 $2 $3 $4"
         if i == $worker_count
           s.args = ["-node", "#{ip}", "-last", "#{$token}"]
+          #EXTRA ADDONS
+          if $grafana
+            node.vm.provision :shell, :inline => "kubectl --kubeconfig /shared/admin.conf apply -f /vagrant/influxdb/"
+          end
         else
           s.args = ["-node", "#{ip}", "none", "#{$token}"]
         end

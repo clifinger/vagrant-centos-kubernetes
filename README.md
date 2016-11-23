@@ -24,6 +24,9 @@ weave-net-ph7l3                         2/2       Running   0          1h
 - weave-net
 - dashboard
 
+## Extra plugins
+- Grafana + InfluxDB (must be activated in config.rb)
+
 ## Prerequisites
 - Vagrant 1.8 (with NFS support)
 
@@ -54,6 +57,8 @@ $master_memory = 1536
 $worker_count = 2
 # Total memory of nodes
 $worker_memory = 1536
+# Add Grafana with InfluxDB (work with heapster)
+$grafana = false
 ```
 
 ### Basic usage
