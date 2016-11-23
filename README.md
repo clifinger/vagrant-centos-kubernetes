@@ -26,6 +26,7 @@ weave-net-ph7l3                         2/2       Running   0          1h
 
 ## Extra plugins
 - Grafana + InfluxDB (must be activated in config.rb)
+![grafana](https://cloud.githubusercontent.com/assets/3530471/20548729/e84b6756-b160-11e6-8bd6-a78eb2a95d88.png)
 
 ## Prerequisites
 - Vagrant 1.8 (with NFS support)
