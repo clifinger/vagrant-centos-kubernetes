@@ -22,7 +22,7 @@ cp jq /usr/bin
 systemctl enable docker && systemctl start docker
 systemctl enable kubelet && systemctl start kubelet
 if [ "$1" == "-master" ]; then
-	kubeadm init --api-advertise-addresses=$2 --token=$TOKEN
+	kubeadm init --api-advertise-address=$2 --token=$TOKEN
   kubectl -n kube-system get ds -l 'component=kube-proxy' -o json \
   | jq '.items[0].spec.template.spec.containers[0].command |= .+ ["--proxy-mode=userspace"]' \
   |   kubectl apply -f - && kubectl -n kube-system delete pods -l 'component=kube-proxy'
